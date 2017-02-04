@@ -13,14 +13,13 @@ for i in range(num_query):
     query = input()
     query_list.append(query)
 
-    
+regex_pattern_line = re.compile(r'\W?\w+\W?')    
 # find sub-words
 for q in query_list:
     cnt = 0
     regex_pattern_query = re.compile(r'\w+' + q + '\w+')
     
     for l in line_list:
-        regex_pattern_line = re.compile(r'\W?\w+\W?')
         finded_word_list = re.findall(regex_pattern_line, l)
         for w in finded_word_list:
             if re.search(regex_pattern_query, w):
